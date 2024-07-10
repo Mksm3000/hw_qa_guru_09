@@ -2,6 +2,8 @@ import os
 
 from selene import browser, have, command
 
+from data.users import User
+
 
 class RegistrationPage:
 
@@ -28,7 +30,7 @@ class RegistrationPage:
     def fill_mobile_number(self, value):
         browser.element('#userNumber').type(value)
 
-    def fill_date_of_birth(self, year, month, day):
+    def fill_date_of_birth(self, year: str, month: str, day: str):
         browser.element('#dateOfBirthInput').click()
         browser.element('.react-datepicker__month-select').type(month)
         browser.element('.react-datepicker__year-select').type(year)
@@ -65,3 +67,17 @@ class RegistrationPage:
     def should_have_registered_user_with(self, values: tuple):
         browser.element('.modal-content').element('table').all('tr').all(
             'td').even.should(have.exact_texts(values))
+
+    def fill(self, user: User):
+        self.fill_first_name(user.first_name)
+        self.fill_last_name(user.last_name)
+        self.fill_user_email(user.user_email)
+        self.select_gender(user.gender)
+        self.fill_mobile_number(user.mobile_number)
+        self.fill_date_of_birth(user.year, user.month, user.day)
+        self.fill_subjects(user.subjects)
+        self.select_hobbie(user.hobbie)
+        self.upload_picture(user.picture)
+        self.fill_address(user.address)
+        self.select_state(user.state)
+        self.select_city(user.city)
