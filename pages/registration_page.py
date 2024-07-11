@@ -3,6 +3,7 @@ import os
 from selene import browser, have, command
 
 from data.users import User
+from tests.resources import resource
 
 
 class RegistrationPage:
@@ -41,12 +42,12 @@ class RegistrationPage:
         for value in values:
             browser.element('#subjectsInput').type(value).press_tab()
 
-    def select_hobbie(self, values: tuple):
+    def select_hobbies(self, values: tuple):
         for value in values:
             browser.all('.custom-checkbox').element_by(have.exact_text(value)).click()
 
     def upload_picture(self, value):
-        browser.element('#uploadPicture').send_keys(os.path.abspath(value))
+        browser.element('#uploadPicture').send_keys(resource.path('qa_guru.png'))
 
     def fill_address(self, value):
         browser.element('#currentAddress').type(value)
@@ -76,7 +77,7 @@ class RegistrationPage:
         self.fill_mobile_number(user.mobile_number)
         self.fill_date_of_birth(user.year, user.month, user.day)
         self.fill_subjects(user.subjects)
-        self.select_hobbie(user.hobbie)
+        self.select_hobbies(user.hobbies)
         self.upload_picture(user.picture)
         self.fill_address(user.address)
         self.select_state(user.state)

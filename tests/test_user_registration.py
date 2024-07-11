@@ -13,7 +13,7 @@ def test_registers_user():
                 month='April',
                 day='12',
                 subjects=('Ph', 'Ma'),
-                hobbie=('Reading', 'Music'),
+                hobbies=('Reading', 'Music'),
                 picture='qa_guru.png',
                 address='Capital city, Liberty str, 17',
                 state='Uttar Pradesh',

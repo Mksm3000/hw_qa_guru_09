@@ -12,7 +12,7 @@ class User:
     month: str
     day: str
     subjects: tuple
-    hobbie: tuple
+    hobbies: tuple
     picture: str
     address: str
     state: str
