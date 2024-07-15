@@ -1,7 +1,5 @@
-import os
-
 from selene import browser, have, command
-from tests.resources import resource
+from utils import resource
 
 
 class RegistrationPage:
@@ -40,7 +38,7 @@ class RegistrationPage:
         for value in values:
             browser.element('#subjectsInput').type(value).press_tab()
 
-    def select_hobbie(self, values: tuple):
+    def select_hobbies(self, values: tuple):
         for value in values:
             browser.all('.custom-checkbox').element_by(have.exact_text(value)).click()
 

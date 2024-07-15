@@ -12,7 +12,7 @@ def test_registration_form():
     registration_page.fill_mobile_number('0958877666')
     registration_page.fill_date_of_birth(year='1984', month='April', day='12')
     registration_page.fill_subjects(('Ph', 'Ma'))
-    registration_page.select_hobbie(('Reading', 'Music'))
+    registration_page.select_hobbies(('Reading', 'Music'))
     registration_page.upload_picture('qa_guru.png')
     registration_page.fill_address('Capital city, Liberty str, 17')
     registration_page.select_state('Uttar Pradesh')
